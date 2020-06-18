@@ -239,7 +239,7 @@ export default class Thumbs extends Component<Props, State> {
     }
 
     renderItems() {
-        return this.props.children.map((img, index) => {
+        return this.props.children.map((Img, index) => {
             const itemClass = klass.ITEM(false, index === this.state.selectedItem);
 
             const thumbProps = {
@@ -254,7 +254,7 @@ export default class Thumbs extends Component<Props, State> {
 
             return (
                 <li {...thumbProps} role="button" tabIndex={0}>
-                    {img}
+                    {Img}
                 </li>
             );
         });
