@@ -129,20 +129,20 @@ export default class Carousel extends React.Component<Props, State> {
         },
         renderThumbs: (children: React.ReactChild[]) => {
             const images = Children.map(children, (item) => {
-                let img: React.ReactNode = item;
+                let Img: React.ReactNode = item;
 
                 // if the item is not an image, try to find the first image in the item's children.
-                if ((item as React.ReactElement<{ children: React.ReactChild[] }>).type !== 'img') {
-                    img = Children.toArray(
+                if ((item as React.ReactElement<{ children: React.ReactChild[] }>).type !== 'Img') {
+                    Img = Children.toArray(
                         (item as React.ReactElement<{ children: React.ReactChild[] }>).props.children
-                    ).find((children) => (children as React.ReactElement).type === 'img');
+                    ).find((children) => (children as React.ReactElement).type === 'Img');
                 }
 
-                if (!img) {
+                if (!Img) {
                     return undefined;
                 }
 
-                return img;
+                return Img;
             });
 
             if (images.filter((image) => image).length === 0) {
@@ -665,13 +665,13 @@ export default class Carousel extends React.Component<Props, State> {
     getInitialImage = () => {
         const selectedItem = this.props.selectedItem;
         const item = this.itemsRef && this.itemsRef[selectedItem];
-        const images = item && item.getElementsByTagName('img');
+        const images = item && item.getElementsByTagName('Img');
         return images && images[selectedItem];
     };
 
     getVariableImageHeight = (position: number) => {
         const item = this.itemsRef && this.itemsRef[position];
-        const images = (item && item.getElementsByTagName('img')) || [];
+        const images = (item && item.getElementsByTagName('Img')) || [];
         if (this.state.hasMount && images.length > 0) {
             const image = images[0];
 
